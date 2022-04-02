@@ -2,7 +2,7 @@
 
 This repository contains `Dockerfile`s used to build Kathará images. A list of the Docker images we provide can be found at [this page](https://hub.docker.com/u/kathara/) in the Docker Hub.
 Images are built both with `docker build` and with `docker buildx` for multi-architecture support.
-Currently our images are based on Debian 9 (tag `debian9`) and Debian 10 (tag `debian10`) and are compiled for `amd64` and `arm64`. `latest` tag is a retag of `debian10`.
+Currently our images are based on Debian 10 (tag `debian10`) and Debian 11 (tag `debian11`), are compiled for `amd64` and `arm64`. `latest` tag is a retag of `debian11`.
 If you need images based on other Linux distributions, feel free to create a PR with other Dockerfiles.
 
 Currently available images are:
@@ -11,13 +11,14 @@ Currently available images are:
 - `kathara/frr`: extends the base image adding [FRRouting](https://frrouting.org/).
 - `kathara/sdn`: extends the base image adding [OpenVSwitch](https://www.openvswitch.org/) and [Ryu SDN controller](https://osrg.github.io/ryu/).
 - `kathara/p4`: extends the base image adding [Behavioral Model (bmv2)](https://github.com/p4lang/behavioral-model) to compile P4 code.
+- `kathara/bird`: extends the base image adding [Bird](https://bird.network.freebsd.org/).
 
 ## Building from source
 To build an image from source, enter the directory according to the desired Debian version and run `make <image_name>` to build for the current architecture.
 To build an image with `docker buildx` for multi-architectures use the command `make <image_name>-multi`.
 **Beware**: building images with `docker buildx` automatically push the images on the Kathará Docker Hub. If you are not allowed to push, change the `Makefile` before running `make`.
 
-Example: `make quagga` or `make quagga-multi`.
+Example: `make bird` or `make bird-multi`.
 
 ## Extend Kathará Images
 
